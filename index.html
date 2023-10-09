@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Calculator</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="calc-box">
+        <input type="text" name="display" id="inputBox" placeholder="0" class="w-1 w-2">
+        <div class="normal" style="display: block;">
+            <div class="row">
+                    <button class="operator">AC</button>
+                    <button class="operator">DEL</button>
+                    <button class="operator">%</button>
+                    <button class="operator">/</button>
+            </div>
+            <div class="row">
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="operator">*</button>
+            </div>
+            <div class="row">
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="operator">-</button>
+            </div>
+            <div class="row">
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="operator">+</button>
+            </div>
+            <div class="row">
+                    <button id="toggleButton">00</button>
+                    <button>0</button>
+                    <button>.</button>
+                    <button id="equalBtn">=</button>
+            </div>        
+        </div>
+
+        <!-- scientific calculator -->
+        <div class="scientific" style="display: none;">
+            <div class="row">
+                <button class="sci-op">x<sup>y</sup></button>
+                <button class="sci-op">&plusmn;</button>
+                <button class="sci-op">e</button>
+                <button class="sci-op">(</button>
+                <button class="sci-op">)</button>
+            </div>
+            <div class="row">
+                    <button class="operator sci-op">&#x221A;x</button>
+                    <button class="operator sci-op">AC</button>
+                    <button class="operator sci-op">DEL</button>
+                    <button class="operator sci-op">%</button>
+                    <button class="operator sci-op">/</button>
+            </div>
+            <div class="row">
+                    <button class="sci-op">x!</button>
+                    <button>7</button>
+                    <button>8</button>
+                    <button>9</button>
+                    <button class="operator sci-op">*</button>
+            </div>
+            <div class="row">
+                    <button class="sci-op">1/x</button>
+                    <button>4</button>
+                    <button>5</button>
+                    <button>6</button>
+                    <button class="operator sci-op">-</button>
+            </div>
+            <div class="row">
+                    <button class="sci-op">&pi;</button>
+                    <button>1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <button class="operator sci-op">+</button>
+            </div>
+            <div class="row-last">
+                    <!-- <button id="trigo-btn"></button> -->
+                    <button class="sci-op">00</button>
+                    <button class="sci-op">0</button>
+                    <button class="sci-op">.</button>
+                    <button class="equalBtn equalBtnSci">=</button>
+            </div>        
+        </div>
+    </div>
+    
+    <!-- still have to work on changing from scientific to normal -->
+    <!-- <input type="button" value="" id="toggleBtn"><i class="fa-solid fa-flask"></i> -->
+
+    
+    <script>
+        // toggle button
+        const toggleButton = document.getElementById('toggleBtn');
+        const normalDivision = document.getElementById('normal');
+        const scientificDivision = document.getElementById('scientific');
+
+        toggleButton.addEventListener('click', () => {
+        if (normalDivision.style.display === 'block') {
+        normalDivision.style.display = 'none';
+        scientificDivision.style.display = 'block';
+        } 
+
+        else {
+        normalDivision.style.display = 'block';
+        scientificDivision.style.display = 'none';
+        }
+        });
+    </script>
+
+    <script>
+        // Calculator Script
+        let input = document.getElementById('inputBox');
+        let buttons = document.querySelectorAll('button');
+
+        let string = "";
+
+        let arr = Array.from(buttons);
+        arr.forEach(button => {
+            button.addEventListener('click', (e) =>{
+                if(e.target.innerHTML == '=') {
+                    string = eval(string);
+                    input.value = string;
+                }
+
+                else if(e.target.innerHTML == 'AC'){
+                    string="";
+                    input.value = string;
+                }
+
+                else if(e.target.innerHTML =='DEL') {
+                    string = string.substring(0, string.length-1);
+                    input.value = string;
+                }
+                else {
+                    string = string + e.target.innerHTML;
+                    input.value = string;   
+                }
+            })
+        })
+
+        
+        
+    </script>
+</body>
+</html> 

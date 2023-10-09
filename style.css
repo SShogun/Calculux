@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&family=Roboto+Condensed:wght@300;400;700&family=Roboto+Mono:wght@300;400;500;600;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(45deg, #0a0a0a, #3a4452);
+}
+.calc-box {
+    border: 2px solid #717377;
+    border-radius: 1.2rem;
+    padding: 1rem;
+    background: transparent;
+    box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+    
+    width: 30rem;
+    /* max-width: 30rem; */
+}
+.calc-box input {
+    /* height: 4rem; */
+    width: 95%;
+    border: none;
+    padding: 1.4rem;
+    margin: .8rem;
+    background: transparent;
+    font-size: 2.8rem;
+    text-align: right;
+    cursor: pointer;
+    color: white;
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.row-last {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.w-2 {
+    width: 26rem;
+}
+.w-1 {
+    width: 20rem;
+}
+
+.calc-box input::placeholder {
+    color: #fff;
+}
+
+button {
+    width: 4rem;
+    height: 4rem;
+    margin: .5rem;
+    border: none;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.4rem;
+    background-color: transparent;
+
+    box-shadow: -5px -3px 15px rgba(255, 255, 255, 0.1);
+
+    cursor: pointer;
+}
+.equalBtn {
+    background-color: #fb7414;
+    font-size: 180%;
+}
+.equalBtnSci {
+    width: 9.8rem;
+    height: 4.2rem;
+    border-radius: 10px;
+}
+.operator {
+    color: rgb(55, 212, 24);
+}
+.sci-op {
+    color: #ff0062;
+}
+
+
+#toggleBtn {
+    color: #a64ca6;
+    font-size: 2rem;
+    margin-left: 2rem;
+    border: none;
+    border-radius: 50%;
+    padding: 1rem 1.4rem;
+    box-shadow: -5px -3px 15px rgba(255, 255, 255, 0.1);
+    background: transparent;
+}
+#toggleBtn:hover {
+    background-color: #a64ca6;
+    color: white;
+
+    transition: color 1s ease, background-color .7s ease, box-shadow .5s ease;
+    box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+
+
+
